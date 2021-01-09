@@ -7,6 +7,8 @@ export default function App() {
     <View style={styles.container}>
       <Text>hi chirag kapadiya</Text>
       <Text>kapadiya</Text>
+      <Text>kapadiya2</Text>
+      <Text>kapadiya3</Text>
       
     </View>
   );
