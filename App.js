@@ -1,24 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { View, Text, Button } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import IndexScreen from './src/Screen/IndexScreen';
+import {BlogProvider } from './src/Context/BlogContext';
 
-export default function App() {
+ const Stack = createStackNavigator();
+const App =() => {
   return (
-    <View style={styles.container}>
-      <Text>hi chirag kapadiya</Text>
-      <Text>kapadiya</Text>
-      <Text>kapadiya2</Text>
-      <Text>kapadiya3</Text>
-      
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator >
+         <Stack.Screen name="IndexScreen" component={IndexScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+export default () => {
+  return (
+    <BlogProvider>
+      <App />
+    </BlogProvider>
+  );
+};
