@@ -6,6 +6,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>hi chirag kapadiya</Text>
+      <Text>kapadiya</Text>
       
     </View>
   );
