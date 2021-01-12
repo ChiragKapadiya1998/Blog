@@ -16,13 +16,22 @@ const EditScreen = ({route,navigation}) => {
     return (
         <View style={styles.view}>
             <Text style={styles.label}>Edit New Title</Text>
-            <TextInput style={styles.textinput} value={title} onChangeText={(newtext)=>{setTitle(newtext)}}/>
+            <TextInput 
+               style={styles.textinput} 
+               value={title} 
+               onChangeText={(newtext)=>{setTitle(newtext)}}
+            />
             <Text style={styles.label}>Edit New Content</Text>
-            <TextInput style={styles.textinput} value={content} onChangeText={(newtext)=>{setContent(newtext)}}/>
+            <TextInput 
+                style={styles.textinput} 
+                value={content} 
+                onChangeText={(newtext)=>{setContent(newtext)}}
+            />
             <Button 
                 title="Add to New Blog Post" 
                 onPress={()=> {
-                    addBlogPost(title,content,()=> {navigation.navigate('IndexScreen');});
+                    addBlogPost(title,content,
+                    ()=> {navigation.navigate('IndexScreen');});
                   }}
              />
         </View>

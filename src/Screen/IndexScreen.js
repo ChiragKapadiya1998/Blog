@@ -5,7 +5,7 @@ import { Feather } from '@expo/vector-icons';
 
 
 const IndexScreen = ({navigation}) => {
-  const { state, addBlogPost,deleteBlogPost } = useContext(Context);
+  const { state,deleteBlogPost } = useContext(Context);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -37,10 +37,6 @@ const IndexScreen = ({navigation}) => {
     </View>
   );
 };
-
-
-
-
 const styles = StyleSheet.create({
     row:{
         flexDirection:'row',
@@ -50,7 +46,6 @@ const styles = StyleSheet.create({
        borderTopWidth:1,
        borderBottomWidth:1,
        borderColor:'gray'
-    
     },
     title:{
         fontSize:18,

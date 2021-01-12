@@ -14,7 +14,7 @@ const App =() => {
     <NavigationContainer>
       <Stack.Navigator >
          <Stack.Screen name="IndexScreen" component={IndexScreen}   options={{ title: 'BLOG' }} />
-         <Stack.Screen name="ShowScreen" component={ShowScreen}   options={{ title: 'BLOG' }} />
+         <Stack.Screen name="ShowScreen" component={ShowScreen}    />
          <Stack.Screen name="CreateScreen" component={CreateScreen}  />
          <Stack.Screen name="EditScreen" component={EditScreen}  />
       </Stack.Navigator>

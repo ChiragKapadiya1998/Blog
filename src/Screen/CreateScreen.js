@@ -1,10 +1,11 @@
-import React,{useContext,useState} from 'react'
-import { View, Text ,TextInput,StyleSheet, Button} from 'react-native'
+import React,{useContext,useState} from 'react';
+import { View, Text ,TextInput,StyleSheet, Button} from 'react-native';
 import { Context } from '../Context/BlogContext'; 
 
 const CreateScreen = ({navigation}) => {
 
     const { addBlogPost } = useContext(Context);
+
     const [title ,setTitle]=useState(' ');
     const [content,setContent]=useState(' ');
 

@@ -1,14 +1,16 @@
 import React,{useContext} from 'react'
 import { View, Text,StyleSheet ,TouchableOpacity} from 'react-native'
-import { Context } from '../Context/BlogContext';
-import {FontAwesome5} from '@expo/vector-icons';
+import { Context } from '../Context/BlogContext';//content import add
+import {FontAwesome5} from '@expo/vector-icons';//icon import
+
 const ShowScreen = ({route,navigation}) => {
     const {id }= route.params;
   
     const { state } = useContext(Context);
+    
     const blogPost = state.find( blogPost => blogPost.id === id );
 
-
+   //todo: header icon import  in header
     React.useLayoutEffect(() => {
         navigation.setOptions({
           headerRight: () => (
@@ -18,6 +20,7 @@ const ShowScreen = ({route,navigation}) => {
           ),
         });
       }, [navigation]);
+
     return (
         <View style={styles.card}>
              <Text style={styles.title}>{blogPost.title}</Text>
