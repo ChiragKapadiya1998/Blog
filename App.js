@@ -6,15 +6,17 @@ import IndexScreen from './src/Screen/IndexScreen';
 import { Provider } from './src/Context/BlogContext';
 import ShowScreen from './src/Screen/ShowScreen';
 import CreateScreen from "./src/Screen/CreateScreen";
+import EditScreen from './src/Screen/EditScreen';
 
  const Stack = createStackNavigator();
 const App =() => {
   return (
     <NavigationContainer>
       <Stack.Navigator >
-         <Stack.Screen name="IndexScreen" component={IndexScreen} />
-         <Stack.Screen name="ShowScreen" component={ShowScreen} />
-         <Stack.Screen name="CreateScreen" component={CreateScreen} />
+         <Stack.Screen name="IndexScreen" component={IndexScreen}   options={{ title: 'BLOG' }} />
+         <Stack.Screen name="ShowScreen" component={ShowScreen}   options={{ title: 'BLOG' }} />
+         <Stack.Screen name="CreateScreen" component={CreateScreen}  />
+         <Stack.Screen name="EditScreen" component={EditScreen}  />
       </Stack.Navigator>
     </NavigationContainer>
   );

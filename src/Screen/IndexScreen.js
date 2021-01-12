@@ -7,9 +7,18 @@ import { Feather } from '@expo/vector-icons';
 const IndexScreen = ({navigation}) => {
   const { state, addBlogPost,deleteBlogPost } = useContext(Context);
 
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={()=>navigation.navigate('CreateScreen')}>
+          <Feather name='plus'  size={30} style={{marginRight:10}}/>
+        </TouchableOpacity>
+      ),
+    });
+  }, [navigation]);
+
   return (
     <View>
-      <Button title="Add Post" onPress={addBlogPost} />
       <FlatList
         data={state}
         keyExtractor={blogPost => blogPost.title}
@@ -18,7 +27,7 @@ const IndexScreen = ({navigation}) => {
                 <View style={styles.row}>
                 <Text style={styles.title}>{item.title} - {item.id}</Text>
                 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
-                    <Feather name="trash"  size={24}/>
+                    <Feather name="trash"  size={24} />
                 </TouchableOpacity>
                </View>
           </TouchableOpacity>
@@ -28,6 +37,9 @@ const IndexScreen = ({navigation}) => {
     </View>
   );
 };
+
+
+
 
 const styles = StyleSheet.create({
     row:{
