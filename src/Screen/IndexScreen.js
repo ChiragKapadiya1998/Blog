@@ -1,11 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext ,useEffect} from 'react';
 import { View, Text, StyleSheet, FlatList, Button ,TouchableOpacity} from 'react-native';
 import { Context } from '../Context/BlogContext';
 import { Feather } from '@expo/vector-icons';
 
 
 const IndexScreen = ({navigation}) => {
-  const { state,deleteBlogPost } = useContext(Context);
+  const { state,deleteBlogPost,getBlogPosts } = useContext(Context);
+ 
+   useEffect( ()=>{
+    getBlogPosts();
+
+    const   listener= navigation.addListener('didFocus',() => {
+      getBlogPosts();
+    });
+    return ()=>{
+      listener.remove();
+    }
+   },[]);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -16,6 +27,7 @@ const IndexScreen = ({navigation}) => {
       ),
     });
   }, [navigation]);
+  
 
   return (
     <View>
@@ -45,7 +57,7 @@ const styles = StyleSheet.create({
        paddingVertical: 20,
        borderTopWidth:1,
        borderBottomWidth:1,
-       borderColor:'gray'
+       borderBottomColor: '#ac5353',
     },
     title:{
         fontSize:18,
